@@ -62,12 +62,12 @@ industrial_dashboard/
 git clone [https://github.com/DouglassenG/industrial_dashboard.git](https://github.com/DouglassenG/industrial_dashboard.git)
 
 ## 2. Acesse a pasta raiz da aplicação
-```text cd industrial_dashboard```
+```cd industrial_dashboard```
 
 ## 3. Instale todas as dependências do projeto (React, Vite, Libs de Gráfico)
-npm install
+```npm install```
 
 ## 4. Inicie o servidor local de desenvolvimento (com Hot Reloading)
-````npm run dev````
+```pm run dev```
 
 
