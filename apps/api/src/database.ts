@@ -3,7 +3,7 @@ import path from "path";
 
 const DB_PATH = path.join(__dirname, "..", "industrial.db");
 
-const db = new Database(DB_PATH);
+const db: Database.Database = new Database(DB_PATH);
 
 // Enable WAL mode for better performance
 db.pragma("journal_mode = WAL");
