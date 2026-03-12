@@ -6,7 +6,7 @@ interface Props {
 
 export default function EfficiencyPanel({ oee }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow flex flex-col gap-3">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow flex flex-col gap-3 transition-all duration-300">
       <span className="font-semibold text-gray-700 dark:text-gray-200">
         Métricas de Eficiência
       </span>

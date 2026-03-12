@@ -16,7 +16,7 @@ export function useMachineData() {
         metrics: {
           temperature: parseFloat((70 + Math.random() * 20).toFixed(1)),
           rpm: parseFloat((1100 + Math.random() * 300).toFixed(0)),
-          uptime: 19380 + Math.floor(Date.now() / 1000),
+          uptime: 19380,
           efficiency: parseFloat((88 + Math.random() * 10).toFixed(1)),
         },
         oee: {

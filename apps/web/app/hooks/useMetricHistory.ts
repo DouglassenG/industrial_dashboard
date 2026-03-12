@@ -6,6 +6,14 @@ import { MetricHistory } from "@repo/types";
 export function useMetricHistory() {
   const [history, setHistory] = useState<MetricHistory[]>([]);
 
+  // Carrega histórico salvo ao iniciar
+  useEffect(() => {
+    const saved = localStorage.getItem("metricHistory");
+    if (saved) {
+      setHistory(JSON.parse(saved));
+    }
+  }, []);
+
   useEffect(() => {
     function generateMetricHistory(): MetricHistory {
       return {
@@ -17,7 +25,12 @@ export function useMetricHistory() {
     }
 
     const interval = setInterval(() => {
-      setHistory((prev) => [...prev.slice(-20), generateMetricHistory()]);
+      setHistory((prev) => {
+        const updated = [...prev.slice(-20), generateMetricHistory()];
+        // Salva no localStorage
+        localStorage.setItem("metricHistory", JSON.stringify(updated));
+        return updated;
+      });
     }, 3000);
 
     return () => clearInterval(interval);
