@@ -15,9 +15,9 @@ for (let i = 20; i >= 0; i--) {
   const date = new Date(Date.now() - i * 3000);
   insertMetric.run(
     date.toISOString(),
-    70 + Math.random() * 20, // 70–90°C
-    1100 + Math.random() * 300, // 1100–1400 RPM
-    88 + Math.random() * 10, // 88–98%
+    70 + Math.random() * 20,
+    1100 + Math.random() * 300,
+    88 + Math.random() * 10,
   );
 }
 

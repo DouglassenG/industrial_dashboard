@@ -1,4 +1,4 @@
-import { MachineStatus, Alert, MetricHistory } from "../../web/app/types";
+import { MachineStatus, Alert, MetricHistory } from "@repo/types";
 
 export function generateMachineStatus(): MachineStatus {
   return {
@@ -22,12 +22,13 @@ export function generateMachineStatus(): MachineStatus {
 
 export function generateAlert(): Alert {
   const levels: Alert["level"][] = ["INFO", "WARNING", "CRITICAL"];
-  const messages = {
+  const messages: Record<Alert["level"], string> = {
     INFO: "Manutenção preventiva próxima",
     WARNING: "RPM abaixo do esperado",
     CRITICAL: "Temperatura acima do limite",
   };
-  const level = levels[Math.floor(Math.random() * levels.length)];
+  const level: Alert["level"] =
+    levels[Math.floor(Math.random() * levels.length)] ?? "INFO";
   return {
     id: `alert-${Date.now()}`,
     level,
