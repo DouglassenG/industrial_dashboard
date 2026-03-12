@@ -56,14 +56,15 @@ industrial_dashboard/
 │   └── main.jsx         # Ponto de entrada (Entry Point) e montagem do React
 ├── package.json         # Gerenciamento de dependências NPM
 └── vite.config.js       # Configurações do empacotador
-````
+```
+
 ## 1. Clone o repositório para o seu disco rígido
 git clone [https://github.com/DouglassenG/industrial_dashboard.git](https://github.com/DouglassenG/industrial_dashboard.git)
 
 ## 2. Acesse a pasta raiz da aplicação
-cd industrial_dashboard
+```text cd industrial_dashboard```
 
-#3 3. Instale todas as dependências do projeto (React, Vite, Libs de Gráfico)
+## 3. Instale todas as dependências do projeto (React, Vite, Libs de Gráfico)
 npm install
 
 ## 4. Inicie o servidor local de desenvolvimento (com Hot Reloading)
