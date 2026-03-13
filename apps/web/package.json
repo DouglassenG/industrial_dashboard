@@ -11,8 +11,8 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@repo/types": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@repo/types": "workspace:*",
     "next": "16.1.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
@@ -21,20 +21,20 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@tailwindcss/postcss": "^4.2.1",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@types/jest": "^30.0.0",
+    "@tailwindcss/postcss": "latest",
+    "@types/jest": "latest",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "@testing-library/react": "latest",
+    "@testing-library/jest-dom": "latest",
     "autoprefixer": "^10.4.27",
     "eslint": "^9.39.1",
-    "jest": "^30.3.0",
-    "jest-environment-jsdom": "^30.3.0",
+    "jest": "latest",
+    "jest-environment-jsdom": "latest",
     "postcss": "^8.5.8",
     "tailwindcss": "^4.2.1",
-    "ts-jest": "^29.4.6",
+    "ts-jest": "latest",
     "typescript": "5.9.2"
   }
 }
