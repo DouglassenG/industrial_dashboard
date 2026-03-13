@@ -8,7 +8,7 @@ const levelConfig = {
   CRITICAL: {
     color: "text-red-500",
     bg: "bg-red-50 dark:bg-red-900/20",
-    label: "Crítico",
+    label: "Crítico ",
   },
   WARNING: {
     color: "text-yellow-500",
@@ -37,7 +37,12 @@ export default function AlertsPanel({ alerts }: Props) {
         {sorted.map((alert) => {
           const config = levelConfig[alert.level];
           return (
-            <div key={alert.id} className={`rounded-lg px-3 py-2 ${config.bg}`}>
+            <div
+              key={alert.id}
+              className={`rounded-lg px-3 py-2 ${config.bg}`}
+              role="alert"
+              aria-label={`Alerta ${config.label} : ${alert.message}`}
+            >
               <span className={`text-sm font-semibold ${config.color}`}>
                 {config.label}:
               </span>

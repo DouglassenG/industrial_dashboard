@@ -30,6 +30,7 @@ export default function Header({
         </div>
         <button
           onClick={onToggleDark}
+          aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
           className="px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white text-sm transition-all duration-300"
         >
           {darkMode ? "☀️ Light" : "🌙 Dark"}

@@ -7,7 +7,7 @@ export function generateAlerts(temperature: number, rpm: number): Alert[] {
     alerts.push({
       id: `alert-${Date.now()}-temp`,
       level: "CRITICAL",
-      message: "Temperatura acima do limite",
+      message: " Temperatura acima do limite",
       component: "Sensor de Temperatura",
       timestamp: new Date(),
       acknowledged: false,
@@ -18,7 +18,7 @@ export function generateAlerts(temperature: number, rpm: number): Alert[] {
     alerts.push({
       id: `alert-${Date.now()}-rpm`,
       level: "WARNING",
-      message: "RPM abaixo do esperado",
+      message: " RPM abaixo do esperado",
       component: "Motor Principal",
       timestamp: new Date(),
       acknowledged: false,
@@ -28,7 +28,7 @@ export function generateAlerts(temperature: number, rpm: number): Alert[] {
   alerts.push({
     id: `alert-${Date.now()}-info`,
     level: "INFO",
-    message: "Manutenção preventiva próxima",
+    message: " Manutenção preventiva próxima",
     component: "Sistema",
     timestamp: new Date(),
     acknowledged: false,
