@@ -10,8 +10,6 @@ const meta: Meta<typeof MetricsChart> = {
 export default meta;
 type Story = StoryObj<typeof MetricsChart>;
 
-const timestamp = new Date("2026-03-13T12:00:00");
-
 const historicoMock: MetricHistory[] = [
   {
     timestamp: new Date("2026-03-13T12:00:00"),

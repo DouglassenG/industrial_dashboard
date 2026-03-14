@@ -6,15 +6,16 @@ interface Props {
 
 export default function TemperatureCard({ temperature, max, trend }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow flex flex-col gap-2 transition-all duration-300">
-      <span className="text-sm text-gray-500 dark:text-gray-400">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow flex flex-col gap-3 min-h-[120px] transition-all duration-300">
+      <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         Temperatura
       </span>
-      <div className="flex items-center gap-2">
-        <span className="font-bold text-lg text-gray-800 dark:text-white">
+      <div className="flex items-baseline gap-2">
+        <span className="font-bold text-2xl text-gray-800 dark:text-white">
           {temperature}°C
         </span>
         <span
+          aria-hidden="true"
           className={
             trend === "up"
               ? "text-red-500"
@@ -26,7 +27,7 @@ export default function TemperatureCard({ temperature, max, trend }: Props) {
           {trend === "up" ? "▲" : trend === "down" ? "▼" : "●"}
         </span>
       </div>
-      <span className="text-sm text-gray-500 dark:text-gray-400">
+      <span className="text-xs text-gray-500 dark:text-gray-400">
         Máx: {max}°C
       </span>
     </div>

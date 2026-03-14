@@ -29,15 +29,15 @@ export default function Page() {
 
   return (
     <div className={darkMode ? "dark" : ""}>
-      <div className="min-h-screen bg-gray-100 dark:bg-gray-950 transition-all duration-300">
+      <div className="h-screen flex flex-col bg-gray-100 dark:bg-gray-950 transition-all duration-300 overflow-hidden">
         <Header
           connected={connected}
           darkMode={darkMode}
           onToggleDark={toggleDark}
         />
-        <main className="p-6 flex flex-col gap-6">
+        <main className="flex-1 min-h-0 overflow-y-auto px-4 py-4 sm:px-6 lg:px-6 flex flex-col gap-4 w-full">
           {/* Cards de métricas */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <MachineStateCard state={data?.state ?? "STOPPED"} />
             <TemperatureCard
               temperature={data?.metrics.temperature ?? 0}
@@ -52,7 +52,7 @@ export default function Page() {
           <MetricsChart history={history} />
 
           {/* Alertas e eficiência */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <AlertsPanel alerts={alerts} />
             {data && <EfficiencyPanel oee={data.oee} />}
           </div>

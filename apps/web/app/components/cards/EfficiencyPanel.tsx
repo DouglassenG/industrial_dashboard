@@ -4,43 +4,62 @@ interface Props {
   oee: MachineStatus["oee"];
 }
 
-export default function EfficiencyPanel({ oee }: Props) {
+function progressColor(value: number): string {
+  if (value >= 0.8) return "bg-green-500";
+  if (value >= 0.6) return "bg-yellow-500";
+  return "bg-red-500";
+}
+
+interface SubMetricProps {
+  label: string;
+  value: number;
+}
+
+function SubMetric({ label, value }: SubMetricProps) {
+  const pct = (value * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow flex flex-col gap-3 transition-all duration-300">
+    <div className="flex flex-col gap-1">
+      <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+        {label}
+      </span>
+      <p className="font-bold text-lg text-gray-800 dark:text-white">{pct}%</p>
+      <div className="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full">
+        <div
+          className={`h-1.5 rounded-full ${progressColor(value)}`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export default function EfficiencyPanel({ oee }: Props) {
+  const oeeValue = (oee.overall * 100).toFixed(0);
+  return (
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow flex flex-col gap-4 min-h-[200px] transition-all duration-300">
       <span className="font-semibold text-gray-700 dark:text-gray-200">
         Métricas de Eficiência
       </span>
-      <div className="grid grid-cols-2 gap-2">
-        <div>
-          <span className="text-sm text-gray-500 dark:text-gray-400">OEE</span>
-          <p className="font-bold text-gray-800 dark:text-white">
-            {(oee.overall * 100).toFixed(0)}%
-          </p>
+
+      {/* OEE — métrica principal em destaque */}
+      <div className="flex flex-col gap-1">
+        <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+          OEE
+        </span>
+        <p className="font-bold text-3xl text-gray-800 dark:text-white">{oeeValue}%</p>
+        <div className="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
+          <div
+            className={`h-2 rounded-full ${progressColor(oee.overall)}`}
+            style={{ width: `${oeeValue}%` }}
+          />
         </div>
-        <div>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            Disponibilidade
-          </span>
-          <p className="font-bold text-gray-800 dark:text-white">
-            {(oee.availability * 100).toFixed(0)}%
-          </p>
-        </div>
-        <div>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            Performance
-          </span>
-          <p className="font-bold text-gray-800 dark:text-white">
-            {(oee.performance * 100).toFixed(0)}%
-          </p>
-        </div>
-        <div>
-          <span className="text-sm text-gray-500 dark:text-gray-400">
-            Qualidade
-          </span>
-          <p className="font-bold text-gray-800 dark:text-white">
-            {(oee.quality * 100).toFixed(0)}%
-          </p>
-        </div>
+      </div>
+
+      {/* Sub-métricas */}
+      <div className="grid grid-cols-3 gap-4">
+        <SubMetric label="Disponib." value={oee.availability} />
+        <SubMetric label="Performance" value={oee.performance} />
+        <SubMetric label="Qualidade" value={oee.quality} />
       </div>
     </div>
   );
