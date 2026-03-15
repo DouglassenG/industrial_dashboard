@@ -29,16 +29,24 @@ export default function Page() {
 
   return (
     <div
-      className={`h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-all duration-300 overflow-hidden ${darkMode ? "dark" : ""}`}
+      className={`flex flex-col bg-gray-50 dark:bg-gray-950 transition-all duration-300
+      min-h-screen
+      lg:h-screen lg:overflow-hidden
+      ${darkMode ? "dark" : ""}`}
     >
       <Header
         connected={connected}
         darkMode={darkMode}
         onToggleDark={toggleDark}
       />
-      <main className="flex-1 min-h-0 px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-4 flex flex-col gap-2">
+
+      <main
+        className="flex-1 flex flex-col gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-4
+        overflow-y-auto
+        lg:overflow-hidden lg:min-h-0"
+      >
         {/* Cards de métricas */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 shrink-0">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 shrink-0">
           <MachineStateCard state={data?.state ?? "STOPPED"} />
           <TemperatureCard
             temperature={data?.metrics.temperature ?? 0}
@@ -55,7 +63,7 @@ export default function Page() {
         </div>
 
         {/* Alertas e eficiência */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 flex-1 min-h-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:flex-1 lg:min-h-0">
           <AlertsPanel alerts={alerts} />
           {data && <EfficiencyPanel oee={data.oee} />}
         </div>

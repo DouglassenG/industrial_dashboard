@@ -18,7 +18,7 @@ interface SubMetricProps {
 function SubMetric({ label, value }: SubMetricProps) {
   const pct = (value * 100).toFixed(0);
   return (
-    <div className="flex flex-col gap-0.5 min-w-0">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
       <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 truncate">
         {label}
       </span>
