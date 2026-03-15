@@ -24,7 +24,7 @@ export default function MetricsChart({ history }: Props) {
   }));
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
+    <div className=" bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
       <div className="mb-4">
         <span className="font-semibold text-gray-700 dark:text-gray-200">
           Gráfico de Métricas

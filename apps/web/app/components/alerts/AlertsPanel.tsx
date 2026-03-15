@@ -32,7 +32,8 @@ export default function AlertsPanel({ alerts }: Props) {
   });
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 lg:p-3 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 flex flex-col gap-1 min-w-0">
+    <div className=" bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 max-sm:h-40 overflow-hidden lg:max-h-none lg:overflow-visible">
+      {" "}
       <span className="font-semibold text-gray-700 dark:text-gray-200">
         Alertas Recentes
       </span>
