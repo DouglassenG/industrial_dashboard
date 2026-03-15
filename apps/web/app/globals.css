@@ -1,33 +1,98 @@
 @import "tailwindcss";
-@variant dark (&:where(.dark, .dark *));
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(0.994 0 0);
+  --foreground: oklch(0.2178 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2178 0 0);
+  --primary: oklch(0.433 0.0745 149.7347);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9067 0 0);
+  --secondary-foreground: oklch(0.2178 0 0);
+  --muted: oklch(0.9551 0 0);
+  --muted-foreground: oklch(0.5555 0 0);
+  --destructive: oklch(0.53 0.1547 24.056);
+  --border: oklch(0.8699 0 0);
+  --input: oklch(1 0 0);
+  --ring: oklch(0.433 0.0745 149.7347);
+  --radius: 0.5rem;
+  --shadow-sm:
+    0 0.125rem 0.25rem 0 hsl(0 0 0 / 0.1), 0 1px 2px -1px hsl(0 0 0 / 0.1);
+  --shadow-md:
+    0 0.125rem 0.25rem 0 hsl(0 0 0 / 0.1), 0 2px 4px -1px hsl(0 0 0 / 0.1);
+  --shadow-lg:
+    0 0.125rem 0.25rem 0 hsl(0 0 0 / 0.1), 0 4px 6px -1px hsl(0 0 0 / 0.1);
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow: hidden;
+.dark {
+  --background: oklch(0.2178 0 0);
+  --foreground: oklch(0.994 0 0);
+  --card: oklch(0.2686 0 0);
+  --card-foreground: oklch(0.994 0 0);
+  --primary: oklch(0.433 0.0745 149.7347);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.3211 0 0);
+  --secondary-foreground: oklch(0.994 0 0);
+  --muted: oklch(0.2891 0 0);
+  --muted-foreground: oklch(0.7155 0 0);
+  --destructive: oklch(0.6591 0.153 22.1703);
+  --border: oklch(0.3979 0 0);
+  --input: oklch(0.2686 0 0);
+  --ring: oklch(0.433 0.0745 149.7347);
+  --shadow-sm:
+    0 0.25rem 0.5rem 0 hsl(0 0 0 / 0.4), 0 1px 2px -1px hsl(0 0 0 / 0.4);
+  --shadow-md:
+    0 0.25rem 0.5rem 0 hsl(0 0 0 / 0.4), 0 2px 4px -1px hsl(0 0 0 / 0.4);
+  --shadow-lg:
+    0 0.25rem 0.5rem 0 hsl(0 0 0 / 0.4), 0 4px 6px -1px hsl(0 0 0 / 0.4);
 }
 
-body {
-  -webkit-tap-highlight-color: transparent;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html,
+  body {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
