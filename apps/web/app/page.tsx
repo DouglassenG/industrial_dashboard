@@ -28,37 +28,34 @@ export default function Page() {
     : [];
 
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <div className="m-4 h-screen flex flex-col bg-gray-100 dark:bg-gray-950 transition-all duration-300 overflow-hidden">
-        <Header
-          connected={connected}
-          darkMode={darkMode}
-          onToggleDark={toggleDark}
-        />
-        <main className="flex-1 min-h-0 overflow-y-auto lg:overflow-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6 flex flex-col gap-3 w-full m-4">
-          {" "}
-          {/* Cards de métricas */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <MachineStateCard state={data?.state ?? "STOPPED"} />
-            <TemperatureCard
-              temperature={data?.metrics.temperature ?? 0}
-              max={85}
-              trend="up"
-            />
-            <RPMCard rpm={data?.metrics.rpm ?? 0} max={1500} trend="down" />
-            <UptimeCard uptimeSeconds={data?.metrics.uptime ?? 0} />
-          </div>
-          {/* Gráfico de métricas */}
-          <div className="flex-shrink-0">
-            <MetricsChart history={history} />
-          </div>
-          {/* Alertas e eficiência */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 lg:flex-1 lg:min-h-0">
-            <AlertsPanel alerts={alerts} />
-            {data && <EfficiencyPanel oee={data.oee} />}
-          </div>
-        </main>
-      </div>
+    <div className={`h-screen flex flex-col bg-gray-50 dark:bg-gray-950 transition-all duration-300 overflow-hidden ${darkMode ? "dark" : ""}`}>
+      <Header
+        connected={connected}
+        darkMode={darkMode}
+        onToggleDark={toggleDark}
+      />
+      <main className="flex-1 min-h-0 overflow-hidden px-2 py-2 sm:px-3 flex flex-col gap-2">
+        {/* Cards de métricas */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
+          <MachineStateCard state={data?.state ?? "STOPPED"} />
+          <TemperatureCard
+            temperature={data?.metrics.temperature ?? 0}
+            max={85}
+            trend="up"
+          />
+          <RPMCard rpm={data?.metrics.rpm ?? 0} max={1500} trend="down" />
+          <UptimeCard uptimeSeconds={data?.metrics.uptime ?? 0} />
+        </div>
+        {/* Gráfico de métricas */}
+        <div>
+          <MetricsChart history={history} />
+        </div>
+        {/* Alertas e eficiência */}
+        <div className="flex-1 min-h-0 flex flex-col lg:flex-row gap-2">
+          <AlertsPanel alerts={alerts} />
+          {data && <EfficiencyPanel oee={data.oee} />}
+        </div>
+      </main>
     </div>
   );
 }

@@ -36,7 +36,7 @@ function SubMetric({ label, value }: SubMetricProps) {
 export default function EfficiencyPanel({ oee }: Props) {
   const oeeValue = (oee.overall * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 pl-8 shadow hover:shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-4 lg:h-full transition-all duration-300">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 pl-10 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-4 transition-all duration-300">
       <span className="font-semibold text-gray-700 dark:text-gray-200">
         Métricas de Eficiência
       </span>
