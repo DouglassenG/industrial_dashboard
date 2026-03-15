@@ -6,11 +6,11 @@ interface Props {
 
 export default function RPMCard({ rpm, max, trend }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow hover:shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-3 min-h-[120px] transition-all duration-300">
-      <span className="pl-4 text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+    <div className="bg-white dark:bg-gray-800 rounded-xl pt-5 pr-5 pb-5 pl-12 shadow hover:shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-3 min-h-[120px] transition-all duration-300">
+      <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         RPM
       </span>
-      <div className="pl-4 flex items-baseline gap-2">
+      <div className="flex items-baseline gap-2">
         <span className="font-bold text-2xl text-gray-800 dark:text-white">
           {rpm}
         </span>
@@ -27,7 +27,7 @@ export default function RPMCard({ rpm, max, trend }: Props) {
           {trend === "up" ? "▲" : trend === "down" ? "▼" : "●"}
         </span>
       </div>
-      <span className="pl-4 text-xs text-gray-500 dark:text-gray-400">
+      <span className="text-xs text-gray-500 dark:text-gray-400">
         Máx: {max}
       </span>
     </div>

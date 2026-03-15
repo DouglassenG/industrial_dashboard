@@ -35,7 +35,7 @@ export default function Page() {
           darkMode={darkMode}
           onToggleDark={toggleDark}
         />
-        <main className="flex-1 min-h-0 overflow-y-auto lg:overflow-hidden px-6 py-5 sm:px-8 lg:px-10 flex flex-col gap-3 w-full">
+        <main className="flex-1 min-h-0 overflow-y-auto lg:overflow-hidden px-4 py-4 sm:px-6 sm:py-5 lg:px-10 lg:py-6 flex flex-col gap-3 w-full">
           {/* Cards de métricas */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             <MachineStateCard state={data?.state ?? "STOPPED"} />

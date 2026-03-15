@@ -32,11 +32,11 @@ export default function AlertsPanel({ alerts }: Props) {
   });
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-100 dark:border-gray-700 flex flex-col gap-3 lg:h-full transition-all duration-300">
-      <span className="pl-4 font-semibold text-gray-700 dark:text-gray-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl pt-5 pr-5 pb-5 pl-12 shadow border border-gray-100 dark:border-gray-700 flex flex-col gap-3 lg:h-full transition-all duration-300">
+      <span className="font-semibold text-gray-700 dark:text-gray-200">
         Alertas Recentes
       </span>
-      <div className="pl-4 flex flex-col gap-2 overflow-y-auto flex-1 min-h-0">
+      <div className="flex flex-col gap-2 overflow-y-auto flex-1 min-h-0">
         {sorted.length === 0 ? (
           <p className="text-sm text-gray-400 dark:text-gray-500 text-center py-8">
             Nenhum alerta ativo
