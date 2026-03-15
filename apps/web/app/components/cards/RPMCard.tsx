@@ -6,7 +6,7 @@ interface Props {
 
 export default function RPMCard({ rpm, max, trend }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 pl-10 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-3 min-h-[90px] transition-all duration-300">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
       <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         RPM
       </span>

@@ -18,7 +18,7 @@ interface SubMetricProps {
 function SubMetric({ label, value }: SubMetricProps) {
   const pct = (value * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 lg:p-3 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 flex flex-col gap-1 min-w-0">
       <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 truncate">
         {label}
       </span>
@@ -36,7 +36,7 @@ function SubMetric({ label, value }: SubMetricProps) {
 export default function EfficiencyPanel({ oee }: Props) {
   const oeeValue = (oee.overall * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-3 transition-all duration-300 overflow-hidden">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-3 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-3 lg:gap-2 transition-all duration-300 overflow-hidden">
       <span className="font-semibold text-sm text-gray-700 dark:text-gray-200">
         Métricas de Eficiência
       </span>
@@ -46,7 +46,7 @@ export default function EfficiencyPanel({ oee }: Props) {
         <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
           OEE
         </span>
-        <p className="font-bold text-2xl text-gray-800 dark:text-white">
+        <p className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white">
           {oeeValue}%
         </p>
         <div className="w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full">

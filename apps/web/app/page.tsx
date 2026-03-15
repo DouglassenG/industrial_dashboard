@@ -41,12 +41,12 @@ export default function Page() {
       />
 
       <main
-        className="flex-1 flex flex-col gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-4
+        className=" flex-1 flex flex-col gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-4
         overflow-y-auto
         lg:overflow-hidden lg:min-h-0"
       >
         {/* Cards de métricas */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 shrink-0">
+        <div className=" grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 shrink-0">
           <MachineStateCard state={data?.state ?? "STOPPED"} />
           <TemperatureCard
             temperature={data?.metrics.temperature ?? 0}
