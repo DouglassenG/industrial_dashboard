@@ -30,7 +30,7 @@ export default function MetricsChart({ history }: Props) {
           Gráfico de Métricas
         </span>
       </div>
-      <div className="h-64 sm:h-72 lg:h-64">
+      <div className="h-44 sm:h-48">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}

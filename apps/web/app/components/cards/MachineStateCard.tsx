@@ -14,7 +14,7 @@ const stateConfig = {
 export default function MachineStateCard({ state }: Props) {
   const config = stateConfig[state];
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 pl-10 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-3 min-h-[120px] transition-all duration-300">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 pl-10 shadow-sm hover:shadow-md border border-gray-300 dark:border-gray-700 flex flex-col gap-3 min-h-[90px] transition-all duration-300">
       <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
         Estado Máquina
       </span>
