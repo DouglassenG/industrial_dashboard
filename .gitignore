@@ -4,6 +4,7 @@
 node_modules
 .pnp
 .pnp.js
+.Prompts
 
 # Local env files
 .env
@@ -37,5 +38,3 @@ yarn-error.log*
 .DS_Store
 *.pem
 
-# prompts
-.Prompts
