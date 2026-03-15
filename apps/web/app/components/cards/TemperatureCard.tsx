@@ -1,3 +1,5 @@
+import { Thermometer, TrendingUp, TrendingDown, Minus } from "lucide-react";
+
 interface Props {
   temperature: number;
   max: number;
@@ -6,26 +8,43 @@ interface Props {
 
 export default function TemperatureCard({ temperature, max, trend }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
-      <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
-        Temperatura
-      </span>
+    <div
+      className={`rounded-xl p-5 shadow border transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in ${
+        temperature >= max
+          ? "bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600"
+          : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"
+      }`}
+    >
+      <div className="flex items-center gap-1.5">
+        <Thermometer
+          size={13}
+          className="text-green-600 dark:text-green-400"
+          aria-hidden="true"
+        />
+        <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+          Temperatura
+        </span>
+      </div>
       <div className="flex items-baseline gap-2">
-        <span className="font-bold text-2xl text-gray-800 dark:text-white">
+        <span
+          key={temperature}
+          className="font-bold text-2xl text-gray-800 dark:text-white animate-fade-in"
+        >
           {temperature}°C
         </span>
-        <span
-          aria-hidden="true"
-          className={
-            trend === "up"
-              ? "text-red-500"
-              : trend === "down"
-                ? "text-blue-500"
-                : "text-gray-400"
-          }
-        >
-          {trend === "up" ? "▲" : trend === "down" ? "▼" : "●"}
-        </span>
+        {trend === "up" && (
+          <TrendingUp size={18} className="text-red-500" aria-label="Subindo" />
+        )}
+        {trend === "down" && (
+          <TrendingDown
+            size={18}
+            className="text-blue-500"
+            aria-label="Descendo"
+          />
+        )}
+        {trend === "stable" && (
+          <Minus size={18} className="text-gray-400" aria-label="Estável" />
+        )}
       </div>
       <span className="text-xs text-gray-500 dark:text-gray-400">
         Máx: {max}°C

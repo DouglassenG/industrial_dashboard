@@ -1,6 +1,7 @@
 "use client";
 
 import { MetricHistory } from "@repo/types";
+import { LineChart as LineChartIcon } from "lucide-react";
 import {
   LineChart,
   Line,
@@ -24,8 +25,13 @@ export default function MetricsChart({ history }: Props) {
   }));
 
   return (
-    <div className=" bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
-      <div className="mb-4">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
+      <div className="mb-4 flex items-center gap-1.5">
+        <LineChartIcon
+          size={15}
+          className="text-green-600 dark:text-green-400"
+          aria-hidden="true"
+        />
         <span className="font-semibold text-gray-700 dark:text-gray-200">
           Gráfico de Métricas
         </span>

@@ -15,7 +15,7 @@ import AlertsPanel from "./components/alerts/AlertsPanel";
 
 export default function Page() {
   const [darkMode, setDarkMode] = useState(false);
-  const { data, connected } = useMachineData();
+  const { data, connected, tempTrend, rpmTrend } = useMachineData();
   const { history } = useMetricHistory();
 
   const toggleDark = () => {
@@ -41,19 +41,19 @@ export default function Page() {
       />
 
       <main
-        className=" flex-1 flex flex-col gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-4
+        className="flex-1 flex flex-col gap-3 px-3 py-3 sm:px-6 sm:py-4 lg:px-8 lg:py-4
         overflow-y-auto
         lg:overflow-hidden lg:min-h-0"
       >
         {/* Cards de métricas */}
-        <div className=" grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 shrink-0">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 shrink-0">
           <MachineStateCard state={data?.state ?? "STOPPED"} />
           <TemperatureCard
             temperature={data?.metrics.temperature ?? 0}
             max={85}
-            trend="up"
+            trend={tempTrend}
           />
-          <RPMCard rpm={data?.metrics.rpm ?? 0} max={1500} trend="down" />
+          <RPMCard rpm={data?.metrics.rpm ?? 0} max={1500} trend={rpmTrend} />
           <UptimeCard uptimeSeconds={data?.metrics.uptime ?? 0} />
         </div>
 
@@ -63,7 +63,7 @@ export default function Page() {
         </div>
 
         {/* Alertas e eficiência */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:flex-1 lg:min-h-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:flex-1 lg:min-h-0 items-stretch">
           <AlertsPanel alerts={alerts} />
           {data && <EfficiencyPanel oee={data.oee} />}
         </div>

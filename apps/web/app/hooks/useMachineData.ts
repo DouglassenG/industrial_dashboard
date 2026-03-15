@@ -1,11 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { MachineStatus } from "@repo/types";
 
 export function useMachineData() {
   const [data, setData] = useState<MachineStatus | null>(null);
   const [connected, setConnected] = useState(true);
+  const [tempTrend, setTempTrend] = useState<"up" | "down" | "stable">(
+    "stable",
+  );
+  const [rpmTrend, setRpmTrend] = useState<"up" | "down" | "stable">("stable");
+  const prevTemp = useRef<number | null>(null);
+  const prevRpm = useRef<number | null>(null);
 
   useEffect(() => {
     function generateMachineStatus(): MachineStatus {
@@ -30,7 +36,25 @@ export function useMachineData() {
 
     const interval = setInterval(() => {
       try {
-        setData(generateMachineStatus());
+        const newData = generateMachineStatus();
+
+        if (prevTemp.current !== null) {
+          if (newData.metrics.temperature > prevTemp.current)
+            setTempTrend("up");
+          else if (newData.metrics.temperature < prevTemp.current)
+            setTempTrend("down");
+          else setTempTrend("stable");
+        }
+        prevTemp.current = newData.metrics.temperature;
+
+        if (prevRpm.current !== null) {
+          if (newData.metrics.rpm > prevRpm.current) setRpmTrend("up");
+          else if (newData.metrics.rpm < prevRpm.current) setRpmTrend("down");
+          else setRpmTrend("stable");
+        }
+        prevRpm.current = newData.metrics.rpm;
+
+        setData(newData);
         setConnected(true);
       } catch {
         setConnected(false);
@@ -40,5 +64,5 @@ export function useMachineData() {
     return () => clearInterval(interval);
   }, []);
 
-  return { data, connected };
+  return { data, connected, tempTrend, rpmTrend };
 }

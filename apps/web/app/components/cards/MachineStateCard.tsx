@@ -1,28 +1,67 @@
 import { MachineStatus } from "@repo/types";
+import {
+  Cpu,
+  CheckCircle2,
+  AlertTriangle,
+  XCircle,
+  PauseCircle,
+} from "lucide-react";
 
 interface Props {
   state: MachineStatus["state"];
 }
 
 const stateConfig = {
-  RUNNING: { label: "Ligada", color: "bg-green-500", text: "OK" },
-  STOPPED: { label: "Desligada", color: "bg-gray-500", text: "Parada" },
-  MAINTENANCE: { label: "Manutenção", color: "bg-yellow-500", text: "Atenção" },
-  ERROR: { label: "Erro", color: "bg-red-500", text: "Crítico" },
+  RUNNING: {
+    label: "Ligada",
+    text: "OK",
+    Icon: CheckCircle2,
+    iconColor: "text-green-500",
+  },
+  STOPPED: {
+    label: "Desligada",
+    text: "Parada",
+    Icon: PauseCircle,
+    iconColor: "text-gray-400",
+  },
+  MAINTENANCE: {
+    label: "Manutenção",
+    text: "Atenção",
+    Icon: AlertTriangle,
+    iconColor: "text-yellow-500",
+  },
+  ERROR: {
+    label: "Erro",
+    text: "Crítico",
+    Icon: XCircle,
+    iconColor: "text-red-500",
+  },
 };
 
 export default function MachineStateCard({ state }: Props) {
   const config = stateConfig[state];
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300">
-      <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
-        Estado Máquina
-      </span>
-      <div className="flex items-center gap-2">
-        <span
-          className={`w-3 h-3 rounded-full flex-shrink-0 ${config.color}`}
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
+      <div className="flex items-center gap-1.5">
+        <Cpu
+          size={13}
+          className="text-green-600 dark:text-green-400"
+          aria-hidden="true"
         />
-        <span className="font-bold text-2xl text-gray-800 dark:text-white">
+        <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+          Estado Máquina
+        </span>
+      </div>
+      <div className="flex items-center gap-2">
+        <config.Icon
+          size={20}
+          className={`flex-shrink-0 ${config.iconColor}`}
+          aria-hidden="true"
+        />
+        <span
+          key={config.label}
+          className="font-bold text-2xl text-gray-800 dark:text-white animate-fade-in"
+        >
           {config.label}
         </span>
       </div>
