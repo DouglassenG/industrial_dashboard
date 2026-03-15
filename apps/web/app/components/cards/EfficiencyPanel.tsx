@@ -36,13 +36,13 @@ function SubMetric({ label, value }: SubMetricProps) {
 export default function EfficiencyPanel({ oee }: Props) {
   const oeeValue = (oee.overall * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow flex flex-col gap-4 min-h-[200px] transition-all duration-300">
-      <span className="font-semibold text-gray-700 dark:text-gray-200">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow hover:shadow-md border border-gray-100 dark:border-gray-700 flex flex-col gap-4 lg:h-full overflow-y-auto transition-all duration-300">
+      <span className="pl-4 font-semibold text-gray-700 dark:text-gray-200">
         Métricas de Eficiência
       </span>
 
       {/* OEE — métrica principal em destaque */}
-      <div className="flex flex-col gap-1">
+      <div className="pl-4 flex flex-col gap-1">
         <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
           OEE
         </span>
@@ -56,7 +56,7 @@ export default function EfficiencyPanel({ oee }: Props) {
       </div>
 
       {/* Sub-métricas */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="pl-4 grid grid-cols-3 gap-4">
         <SubMetric label="Disponib." value={oee.availability} />
         <SubMetric label="Performance" value={oee.performance} />
         <SubMetric label="Qualidade" value={oee.quality} />

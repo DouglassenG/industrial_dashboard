@@ -24,13 +24,13 @@ export default function MetricsChart({ history }: Props) {
   }));
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow">
-      <div className="mb-4">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-100 dark:border-gray-700 transition-all duration-300">
+      <div className="pl-4 mb-4">
         <span className="font-semibold text-gray-700 dark:text-gray-200">
           Gráfico de Métricas
         </span>
       </div>
-      <div className="h-64 sm:h-72 lg:h-80">
+      <div className="h-64 sm:h-72 lg:h-64">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}

@@ -12,7 +12,7 @@ export default function Header({
   onToggleDark,
 }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between px-4 sm:px-6 py-4 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
+    <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 sm:px-8 lg:px-10 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 shadow-sm">
       <div className="flex items-center gap-2 min-w-0">
         <span className="text-2xl flex-shrink-0">⚙️</span>
         <span className="font-bold text-lg text-gray-800 dark:text-white truncate">
