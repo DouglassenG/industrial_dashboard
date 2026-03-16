@@ -1,8 +1,31 @@
 # Dashboard de Automação Industrial
 
-Sistema de monitoramento em tempo real para linha de produção industrial, desenvolvido como desafio técnico Full-stack Junior/Pleno.
+> Solução de monitoramento em tempo real para linha de produção industrial, fornecendo visibilidade completa sobre o estado das máquinas, métricas de performance e alertas operacionais — focado no monitoramento do **misturador** do processo produtivo.
 
 ![Dashboard Preview](./docs/preview.png)
+
+---
+
+## 📋 Contexto
+
+Ambientes industriais geram volumes massivos de dados operacionais que, sem uma interface adequada, tornam-se invisíveis para os operadores. Este projeto resolve esse problema criando um dashboard de monitoramento em tempo real que traduz dados brutos do chão de fábrica em informações visuais acionáveis.
+
+O sistema monitora uma máquina específica do processo — o **misturador** — fornecendo:
+- Visibilidade completa sobre o estado da máquina
+- Métricas de performance em tempo real
+- Alertas operacionais com priorização por severidade
+- Indicadores de eficiência industrial (OEE)
+
+---
+
+## 🎯 Objetivo
+
+Criar um dashboard de monitoramento industrial usando arquitetura de monorepo, com componentes reutilizáveis e dados em tempo real, atendendo os seguintes pilares:
+
+- **Monitoramento** — Estados da máquina e métricas atualizadas a cada 3 segundos
+- **Visualização** — Gráficos, cards e interface responsiva para desktop, tablet e mobile
+- **Alertas** — Sistema de notificações com níveis INFO, WARNING e CRITICAL
+- **Eficiência** — Métricas industriais OEE, Disponibilidade, Performance e Qualidade
 
 ---
 
@@ -119,27 +142,27 @@ Acesse: [http://localhost:6006](http://localhost:6006)
 
 ## 🏭 Funcionalidades
 
-### Monitoramento em Tempo Real
+### 1. Monitoramento em Tempo Real
 - Estados da máquina: Ligada, Desligada, Em Manutenção, Erro
 - Métricas: Temperatura, RPM, Tempo de Operação, Eficiência
 - Atualização automática a cada 3 segundos
-- Indicadores de tendência dinâmicos (▲▼) calculados em tempo real
+- Indicadores de tendência dinâmicos calculados em tempo real
 - Indicação visual de perda de conexão
 
-### Visualização de Dados
+### 2. Visualização de Dados
 - Cards de métricas com valores atuais e indicadores de tendência
 - Gráfico de histórico com escala dupla — eixo Y esquerdo para Temperatura/Eficiência (0-100) e eixo Y direito para RPM (800-1600)
 - Feedback visual quando temperatura ultrapassa o limite máximo
 - Interface responsiva para desktop, tablet e mobile
 
-### Sistema de Alertas
+### 3. Sistema de Alertas
 - Níveis: INFO, WARNING, CRITICAL
 - Priorização automática por severidade e timestamp
 - Feedback visual com cores e ícones por nível
-- Feedback sonoro para alertas CRITICAL e WARNING (ativado pelo usuário)
+- Feedback sonoro para alertas CRITICAL e WARNING
 - Histórico de alertas
 
-### Métricas de Eficiência Industrial
+### 4. Métricas de Eficiência Industrial
 - OEE (Overall Equipment Effectiveness)
 - Disponibilidade (uptime / tempo total)
 - Performance (velocidade real vs. teórica)
@@ -149,15 +172,12 @@ Acesse: [http://localhost:6006](http://localhost:6006)
 
 ## 🎨 Diferenciais Implementados
 
-- ✅ Dark/Light mode funcional
-- ✅ Histórico persistente com localStorage
-- ✅ Animações suaves com tw-animate-css
-- ✅ Acessibilidade completa (aria-label, role, aria-hidden)
-- ✅ Testes E2E com Cypress (8 testes)
-- ✅ Documentação visual com Storybook
-- ✅ Feedback sonoro para alertas CRITICAL e WARNING
-- ✅ Ícones com Lucide React
-- ✅ shadcn/ui components
+| Funcionalidades Avançadas | Técnicas Avançadas |
+|---|---|
+| ✅ Dark/Light mode funcional | ✅ Animações suaves |
+| ✅ Histórico persistente localStorage | ✅ Acessibilidade completa |
+| ✅ Documentação com Storybook | ✅ Feedback sonoro |
+| ✅ Testes E2E com Cypress | ✅ Componentes reutilizáveis |
 
 ---
 
@@ -167,7 +187,7 @@ Acesse: [http://localhost:6006](http://localhost:6006)
 
 **Tailwind CSS v4** — Versão mais recente com suporte a variáveis CSS nativas via `@theme inline`, configuração simplificada via `@import` e suporte nativo a dark mode com `@custom-variant`.
 
-**SQLite com better-sqlite3** — Solicitado pelo teste para dados mockados. Banco leve, sem necessidade de servidor externo e com dados pré-populados via `seed.ts`.
+**SQLite com better-sqlite3** — Banco leve, sem necessidade de servidor externo e com dados pré-populados via `seed.ts`, conforme recomendado pelo teste.
 
 **Recharts com ComposedChart** — Permite escala dupla no eixo Y, essencial para visualizar simultaneamente temperatura (0-100°C) e RPM (800-1600) sem sobreposição visual.
 
