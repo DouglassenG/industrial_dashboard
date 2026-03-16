@@ -31,18 +31,18 @@ export default function Header({
   };
 
   return (
-    <header className="sticky top-0 z-30 flex items-center justify-between px-6 py-4 sm:px-8 lg:px-10 bg-blue-900 dark:bg-blue-950 border-b border-blue-800 dark:border-blue-900 shadow-md">
-      <div className="flex items-center gap-2 min-w-0">
-        <Settings
-          size={24}
-          className="flex-shrink-0 text-white"
-          aria-hidden="true"
-        />
-        <span className="font-bold text-lg text-white truncate">
-          Dashboard de Monitoramento
-        </span>
-      </div>
-      <div className="flex items-center gap-2 flex-wrap justify-end">
+    <header className="sticky top-0 z-30 flex flex-col sm:flex-row sm:items-center sm:justify-between px-3 py-3 sm:px-8 sm:py-4 lg:px-10 bg-blue-900 dark:bg-blue-950 border-b border-blue-800 dark:border-blue-900 shadow-md">
+      <div className="flex items-center justify-between sm:contents">
+        <div className="flex items-center gap-2 min-w-0">
+          <Settings
+            size={24}
+            className="flex-shrink-0 text-white"
+            aria-hidden="true"
+          />
+          <span className="font-semibold text-sm text-white truncate min-w-0">
+            Dashboard de Monitoramento
+          </span>
+        </div>
         <div className="flex items-center gap-1.5 flex-shrink-0">
           {connected ? (
             <Wifi
@@ -61,10 +61,12 @@ export default function Header({
             {connected ? "Conectado" : "Sem conexão"}
           </span>
         </div>
+      </div>
+      <div className="flex items-center gap-2 sm:contents">
         <button
           onClick={handleToggleSound}
           aria-label={soundEnabled ? "Desativar som" : "Ativar som"}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-800 dark:bg-blue-900 text-white text-sm transition-all duration-300 min-w-[80px] whitespace-nowrap flex-shrink-0 hover:bg-blue-700 dark:hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-800 dark:bg-blue-900 text-white text-sm transition-all duration-300 min-w-[80px] whitespace-nowrap flex-shrink-0 hover:bg-blue-700 dark:hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 flex-1 sm:flex-none justify-center"
         >
           {soundEnabled ? (
             <>
@@ -81,7 +83,7 @@ export default function Header({
         <button
           onClick={onToggleDark}
           aria-label={darkMode ? "Ativar modo claro" : "Ativar modo escuro"}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-800 dark:bg-blue-900 text-white text-sm transition-all duration-300 min-w-[80px] whitespace-nowrap flex-shrink-0 hover:bg-blue-700 dark:hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-lg active:scale-95"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-blue-800 dark:bg-blue-900 text-white text-sm transition-all duration-300 min-w-[80px] whitespace-nowrap flex-shrink-0 hover:bg-blue-700 dark:hover:bg-blue-800 hover:-translate-y-0.5 hover:shadow-lg active:scale-95 flex-1 sm:flex-none justify-center"
         >
           {darkMode ? (
             <>
