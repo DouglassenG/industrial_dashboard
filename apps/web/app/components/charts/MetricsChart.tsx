@@ -25,7 +25,7 @@ export default function MetricsChart({ history }: Props) {
   }));
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in">
+    <div className="shrink-0 w-full bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in">
       <div className="mb-4 flex items-center gap-1.5">
         <LineChartIcon
           size={15}
@@ -40,7 +40,7 @@ export default function MetricsChart({ history }: Props) {
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={data}
-            margin={{ top: 10, right: 55, left: 10, bottom: 0 }}
+            margin={{ top: 10, right: 55, left: 40, bottom: 0 }}
           >
             <XAxis
               dataKey="time"

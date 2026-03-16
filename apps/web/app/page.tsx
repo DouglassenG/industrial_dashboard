@@ -61,7 +61,7 @@ export default function Page() {
         </div>
 
         {/* Gráfico de métricas */}
-        <div className="shrink-0">
+        <div className="shrink-0 w-full">
           <MetricsChart history={history} />
         </div>
 
