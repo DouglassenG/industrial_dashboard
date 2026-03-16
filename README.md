@@ -8,7 +8,9 @@
 
 ## 🎬 Demonstração
 
-https://github.com/DouglassenG/industrial_dashboard/blob/main/docs/demo.mp4
+[▶️ Assistir ao vídeo de demonstração](https://github.com/DouglassenG/industrial_dashboard/blob/main/docs/demo.mp4)
+
+> Clique em **View raw** ou **Download** para assistir ao vídeo.
 
 ---
 
@@ -231,7 +233,7 @@ interface Alert {
   timestamp: Date;
   acknowledged: boolean;
 }
-
+ 
 interface MetricHistory {
   timestamp: Date;
   temperature: number;
