@@ -2,7 +2,7 @@
 
 Sistema de monitoramento em tempo real para linha de produção industrial, desenvolvido como desafio técnico Full-stack Junior/Pleno.
 
-![Dashboard Preview](./docs/preview.png)
+![Dashboard Preview](./docs/preview.png) 
 
 ---
 
