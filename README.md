@@ -6,11 +6,25 @@
 
 ---
 
-## 🎬 Demonstração
+## 📸 Screenshots
 
-[▶️ Assistir ao vídeo de demonstração](https://github.com/DouglassenG/industrial_dashboard/blob/main/docs/demo.mp4)
+### Desktop — Light Mode
+![Desktop Light](./docs/screenshot-desktop-light.png)
 
-> Clique em **View raw** ou **Download** para assistir ao vídeo.
+### Desktop — Dark Mode
+![Desktop Dark](./docs/screenshot-desktop-dark.png)
+
+### Alerta Crítico
+![Critical Alert](./docs/screenshot-critical-alert.png)
+
+### Tablet
+![Tablet](./docs/screenshot-tablet.png)
+
+### Mobile
+![Mobile](./docs/screenshot-mobile.png)
+
+### Storybook
+![Storybook](./docs/screenshot-storybook.png)
 
 ---
 
