@@ -41,7 +41,7 @@ function SubMetric({ label, value, icon }: SubMetricProps) {
 export default function EfficiencyPanel({ oee }: Props) {
   const oeeValue = (oee.overall * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-3 shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-gray-50 dark:hover:bg-gray-800/60 border border-gray-200 dark:border-gray-700 flex flex-col gap-3 lg:gap-2 transition-all duration-300 overflow-hidden animate-fade-in">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 lg:p-3 shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-gray-50 dark:hover:bg-gray-800/60 border border-gray-200 dark:border-gray-700 flex flex-col gap-3 lg:gap-2 transition-all duration-300 overflow-hidden animate-fade-in">
       <div className="flex items-center gap-1.5">
         <BarChart2
           size={15}
