@@ -6,6 +6,12 @@
 
 ---
 
+## 🎬 Demonstração
+
+https://github.com/DouglassenG/industrial_dashboard/blob/main/docs/demo.mp4
+
+---
+
 ## 📋 Contexto
 
 Ambientes industriais geram volumes massivos de dados operacionais que, sem uma interface adequada, tornam-se invisíveis para os operadores. Este projeto resolve esse problema criando um dashboard de monitoramento em tempo real que traduz dados brutos do chão de fábrica em informações visuais acionáveis.
