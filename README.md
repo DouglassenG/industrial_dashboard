@@ -2,7 +2,7 @@
 
 Sistema de monitoramento em tempo real para linha de produção industrial, desenvolvido como desafio técnico Full-stack Junior/Pleno.
 
-![Dashboard Preview](./docs/preview.png) 
+![Dashboard Preview](./docs/preview.png)
 
 ---
 
@@ -13,10 +13,11 @@ Sistema de monitoramento em tempo real para linha de produção industrial, dese
 - **Estilização:** Tailwind CSS v4
 - **Monorepo:** Turborepo + pnpm workspaces
 - **Banco de Dados:** SQLite (better-sqlite3)
-- **Gráficos:** Recharts
+- **Gráficos:** Recharts com ComposedChart
 - **Ícones:** Lucide React
 - **Testes:** Jest + React Testing Library + Cypress E2E
 - **Documentação:** Storybook
+- **Animações:** tw-animate-css
 
 ---
 
@@ -24,25 +25,42 @@ Sistema de monitoramento em tempo real para linha de produção industrial, dese
 ```
 industrial-dashboard/
 ├── apps/
-│   ├── web/                    # Frontend Next.js
+│   ├── web/                        # Frontend Next.js
 │   │   ├── app/
-│   │   │   ├── components/     # Componentes reutilizáveis
-│   │   │   │   ├── cards/      # Cards de métricas
-│   │   │   │   ├── charts/     # Gráficos
-│   │   │   │   ├── alerts/     # Painel de alertas
-│   │   │   │   └── layout/     # Header
-│   │   │   ├── hooks/          # Hooks customizados
-│   │   │   ├── lib/            # Serviços e utilitários
-│   │   │   └── types/          # Re-exportação de tipos
-│   │   └── cypress/            # Testes E2E
-│   └── api/                    # Backend SQLite
+│   │   │   ├── components/
+│   │   │   │   ├── cards/
+│   │   │   │   │   ├── MachineStateCard.tsx   # Estado da máquina
+│   │   │   │   │   ├── TemperatureCard.tsx    # Temperatura
+│   │   │   │   │   ├── RPMCard.tsx            # RPM
+│   │   │   │   │   ├── UptimeCard.tsx         # Tempo de operação
+│   │   │   │   │   └── EfficiencyPanel.tsx    # OEE e métricas
+│   │   │   │   ├── charts/
+│   │   │   │   │   └── MetricsChart.tsx       # Gráfico de métricas
+│   │   │   │   ├── alerts/
+│   │   │   │   │   └── AlertsPanel.tsx        # Painel de alertas
+│   │   │   │   └── layout/
+│   │   │   │       └── Header.tsx             # Cabeçalho
+│   │   │   ├── hooks/
+│   │   │   │   ├── useMachineData.ts          # Dados em tempo real
+│   │   │   │   └── useMetricHistory.ts        # Histórico de métricas
+│   │   │   ├── lib/
+│   │   │   │   ├── alertsService.ts           # Geração de alertas
+│   │   │   │   └── soundService.ts            # Feedback sonoro
+│   │   │   ├── stories/                       # Storybook stories
+│   │   │   └── types/                         # Re-exportação de tipos
+│   │   ├── cypress/
+│   │   │   └── e2e/
+│   │   │       └── dashboard.cy.ts            # Testes E2E
+│   │   └── app/__tests__/                     # Testes Jest
+│   └── api/                                   # Backend SQLite
 │       └── src/
-│           ├── database.ts     # Configuração do banco
-│           ├── seed.ts         # Dados iniciais
-│           └── mockData.ts     # Gerador de dados em tempo real
+│           ├── database.ts                    # Configuração do banco
+│           ├── seed.ts                        # Dados iniciais
+│           └── mockData.ts                    # Gerador de dados
 └── packages/
-    ├── types/                  # Interfaces TypeScript compartilhadas
-    └── ui/                     # Componentes compartilhados
+    ├── types/                                 # Interfaces compartilhadas
+    │   └── src/index.ts
+    └── ui/                                    # Componentes compartilhados
 ```
 
 ---
@@ -54,10 +72,10 @@ industrial-dashboard/
 - pnpm
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/industrial-dashboard.git
+git clone https://github.com/DouglassenG/industrial_dashboard.git
 
 # Entre na pasta
-cd industrial-dashboard
+cd industrial_dashboard
 
 # Instale as dependências
 pnpm install
@@ -103,58 +121,64 @@ Acesse: [http://localhost:6006](http://localhost:6006)
 
 ### Monitoramento em Tempo Real
 - Estados da máquina: Ligada, Desligada, Em Manutenção, Erro
-- Métricas: Temperatura, RPM, Tempo de Operação
-- Atualização a cada 3 segundos
+- Métricas: Temperatura, RPM, Tempo de Operação, Eficiência
+- Atualização automática a cada 3 segundos
+- Indicadores de tendência dinâmicos (▲▼) calculados em tempo real
 - Indicação visual de perda de conexão
 
 ### Visualização de Dados
-- Cards de métricas com valores atuais e indicadores de tendência (▲▼)
-- Gráfico de histórico com escala dupla (temperatura/eficiência e RPM)
+- Cards de métricas com valores atuais e indicadores de tendência
+- Gráfico de histórico com escala dupla — eixo Y esquerdo para Temperatura/Eficiência (0-100) e eixo Y direito para RPM (800-1600)
+- Feedback visual quando temperatura ultrapassa o limite máximo
 - Interface responsiva para desktop, tablet e mobile
-- Feedback visual quando temperatura ultrapassa o limite
 
 ### Sistema de Alertas
 - Níveis: INFO, WARNING, CRITICAL
-- Priorização por severidade e timestamp
-- Feedback visual e sonoro para alertas CRITICAL
+- Priorização automática por severidade e timestamp
+- Feedback visual com cores e ícones por nível
+- Feedback sonoro para alertas CRITICAL e WARNING (ativado pelo usuário)
 - Histórico de alertas
 
 ### Métricas de Eficiência Industrial
 - OEE (Overall Equipment Effectiveness)
-- Disponibilidade
-- Performance
-- Qualidade
+- Disponibilidade (uptime / tempo total)
+- Performance (velocidade real vs. teórica)
+- Qualidade (produtos bons vs. total)
 
 ---
 
 ## 🎨 Diferenciais Implementados
 
-- ✅ Dark/Light mode
+- ✅ Dark/Light mode funcional
 - ✅ Histórico persistente com localStorage
 - ✅ Animações suaves com tw-animate-css
-- ✅ Acessibilidade (aria-label, role)
-- ✅ Testes E2E com Cypress
-- ✅ Documentação com Storybook
-- ✅ Feedback sonoro para alertas CRITICAL
+- ✅ Acessibilidade completa (aria-label, role, aria-hidden)
+- ✅ Testes E2E com Cypress (8 testes)
+- ✅ Documentação visual com Storybook
+- ✅ Feedback sonoro para alertas CRITICAL e WARNING
+- ✅ Ícones com Lucide React
+- ✅ shadcn/ui components
 
 ---
 
 ## 🏗️ Decisões Técnicas
 
-**Turborepo** — Escolhido pela separação clara de responsabilidades entre frontend e backend, compartilhamento de tipos via `@repo/types` e escalabilidade do monorepo.
+**Turborepo** — Escolhido pela separação clara de responsabilidades entre frontend e backend, compartilhamento de tipos via `@repo/types` e escalabilidade do monorepo. Permite que `apps/api` e `apps/web` compartilhem as mesmas interfaces TypeScript sem duplicação.
 
-**Tailwind CSS v4** — Versão mais recente com suporte a variáveis CSS nativas e configuração simplificada via `@import`.
+**Tailwind CSS v4** — Versão mais recente com suporte a variáveis CSS nativas via `@theme inline`, configuração simplificada via `@import` e suporte nativo a dark mode com `@custom-variant`.
 
-**SQLite com better-sqlite3** — Solicitado pelo teste para dados mockados. Banco leve e sem necessidade de servidor externo.
+**SQLite com better-sqlite3** — Solicitado pelo teste para dados mockados. Banco leve, sem necessidade de servidor externo e com dados pré-populados via `seed.ts`.
 
-**Recharts com ComposedChart** — Permite escala dupla no eixo Y, essencial para visualizar simultaneamente temperatura (0-100) e RPM (800-1600) sem sobreposição.
+**Recharts com ComposedChart** — Permite escala dupla no eixo Y, essencial para visualizar simultaneamente temperatura (0-100°C) e RPM (800-1600) sem sobreposição visual.
 
-**Web Audio API** — Escolhida para feedback sonoro por ser nativa do navegador, sem dependências externas.
+**Web Audio API** — Escolhida para feedback sonoro por ser nativa do navegador, sem dependências externas. Implementada com `try/catch` para silenciar erros em ambientes sem suporte.
+
+**Hooks customizados** — `useMachineData` centraliza a lógica de geração de dados, cálculo de tendências e controle de conexão. `useMetricHistory` gerencia o histórico com persistência via localStorage.
 
 ---
 
 ## 📋 Interfaces TypeScript Obrigatórias
-```ts
+```typescript
 interface MachineStatus {
   id: string;
   timestamp: Date;
@@ -189,6 +213,13 @@ interface MetricHistory {
   efficiency: number;
 }
 ```
+
+---
+
+## 🔗 Links
+
+- **Deploy:** [industrial-dashboard-web.vercel.app](https://industrial-dashboard-web.vercel.app)
+- **Repositório:** [github.com/DouglassenG/industrial_dashboard](https://github.com/DouglassenG/industrial_dashboard)
 
 ---
 
