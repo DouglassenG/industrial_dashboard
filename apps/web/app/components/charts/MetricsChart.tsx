@@ -3,7 +3,7 @@
 import { MetricHistory } from "@repo/types";
 import { LineChart as LineChartIcon } from "lucide-react";
 import {
-  LineChart,
+  ComposedChart,
   Line,
   XAxis,
   YAxis,
@@ -38,18 +38,29 @@ export default function MetricsChart({ history }: Props) {
       </div>
       <div className="h-52 sm:h-32">
         <ResponsiveContainer width="100%" height="100%">
-          <LineChart
+          <ComposedChart
             data={data}
-            margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+            margin={{ top: 10, right: 55, left: 10, bottom: 0 }}
           >
             <XAxis
               dataKey="time"
               tick={{ fontSize: 10 }}
               interval="preserveStartEnd"
-              angle={0}
               height={20}
             />
-            <YAxis tick={{ fontSize: 12 }} width={36} />
+            <YAxis
+              yAxisId="left"
+              tick={{ fontSize: 10 }}
+              width={45}
+              domain={[0, 100]}
+            />
+            <YAxis
+              yAxisId="right"
+              orientation="right"
+              tick={{ fontSize: 10 }}
+              width={55}
+              domain={[800, 1600]}
+            />
             <Tooltip
               wrapperStyle={{ zIndex: 50 }}
               contentStyle={{
@@ -62,6 +73,7 @@ export default function MetricsChart({ history }: Props) {
             />
             <Legend />
             <Line
+              yAxisId="left"
               type="monotone"
               dataKey="temperature"
               stroke="#ef4444"
@@ -69,6 +81,7 @@ export default function MetricsChart({ history }: Props) {
               dot={false}
             />
             <Line
+              yAxisId="right"
               type="monotone"
               dataKey="rpm"
               stroke="#3b82f6"
@@ -76,13 +89,14 @@ export default function MetricsChart({ history }: Props) {
               dot={false}
             />
             <Line
+              yAxisId="left"
               type="monotone"
               dataKey="efficiency"
               stroke="#22c55e"
               name="Eficiência (%)"
               dot={false}
             />
-          </LineChart>
+          </ComposedChart>
         </ResponsiveContainer>
       </div>
     </div>

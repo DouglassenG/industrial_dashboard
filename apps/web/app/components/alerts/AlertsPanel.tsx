@@ -36,7 +36,7 @@ export default function AlertsPanel({ alerts }: Props) {
   });
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 max-sm:h-40 overflow-hidden lg:max-h-none lg:overflow-visible transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 max-sm:overflow-hidden lg:max-h-none lg:overflow-visible transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in max-sm:h-32">
       <div className="flex items-center gap-1.5 mb-2">
         <Bell
           size={15}

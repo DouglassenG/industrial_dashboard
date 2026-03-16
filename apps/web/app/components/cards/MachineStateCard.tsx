@@ -41,7 +41,7 @@ const stateConfig = {
 export default function MachineStateCard({ state }: Props) {
   const config = stateConfig[state];
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
+    <div className=" bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
       <div className="flex items-center gap-1.5">
         <Cpu
           size={13}
