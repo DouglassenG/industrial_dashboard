@@ -233,7 +233,7 @@ interface Alert {
   timestamp: Date;
   acknowledged: boolean;
 }
-
+ 
 interface MetricHistory {
   timestamp: Date;
   temperature: number;
