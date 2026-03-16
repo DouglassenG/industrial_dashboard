@@ -26,6 +26,11 @@
 ### Storybook
 ![Storybook](./docs/screenshot-storybook.png)
 
+### 🎬 Demonstração em Vídeo
+> O vídeo demonstra o dashboard funcionando em tempo real, incluindo o sinal sonoro para alertas críticos.
+
+[▶️ Assistir demonstração](https://github.com/DouglassenG/industrial_dashboard/blob/main/docs/demo.mp4)
+
 ---
 
 ## 📋 Contexto
