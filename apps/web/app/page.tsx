@@ -30,7 +30,7 @@ export default function Page() {
 
   return (
     <div
-      className={`flex flex-col bg-gray-50 dark:bg-gray-950 transition-all duration-300
+      className={`flex flex-col bg-gray-100 dark:bg-gray-950 transition-all duration-300
       min-h-screen
       lg:h-screen lg:overflow-hidden
       ${darkMode ? "dark" : ""}`}

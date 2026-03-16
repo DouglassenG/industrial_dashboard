@@ -20,14 +20,14 @@ interface SubMetricProps {
 function SubMetric({ label, value, icon }: SubMetricProps) {
   const pct = (value * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 lg:p-3 shadow-md dark:shadow-black/30 border border-gray-400 dark:border-gray-600 transition-all duration-300 flex flex-col gap-1 min-w-0">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 lg:p-3 shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 flex flex-col gap-1 min-w-0">
       <div className="flex items-center gap-1">
         {icon}
-        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400 truncate">
+        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-400 truncate">
           {label}
         </span>
       </div>
-      <p className="font-bold text-sm text-gray-800 dark:text-white">{pct}%</p>
+      <p className="font-bold text-sm text-gray-900 dark:text-white">{pct}%</p>
       <div className="w-full h-1 bg-gray-200 dark:bg-gray-700 rounded-full">
         <div
           className={`h-1 rounded-full transition-[width] duration-700 ease-out ${progressColor(value)}`}
@@ -41,26 +41,26 @@ function SubMetric({ label, value, icon }: SubMetricProps) {
 export default function EfficiencyPanel({ oee }: Props) {
   const oeeValue = (oee.overall * 100).toFixed(0);
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-3 shadow-md dark:shadow-black/30 hover:shadow-lg hover:-translate-y-1 hover:bg-gray-50 dark:hover:bg-gray-800/60 border border-gray-400 dark:border-gray-600 flex flex-col gap-3 lg:gap-2 transition-all duration-300 overflow-hidden animate-fade-in">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-4 lg:p-3 shadow-sm hover:shadow-md hover:-translate-y-1 hover:bg-gray-50 dark:hover:bg-gray-800/60 border border-gray-200 dark:border-gray-700 flex flex-col gap-3 lg:gap-2 transition-all duration-300 overflow-hidden animate-fade-in">
       <div className="flex items-center gap-1.5">
         <BarChart2
           size={15}
-          className="text-green-600 dark:text-green-400"
+          className="text-blue-600 dark:text-blue-400"
           aria-hidden="true"
         />
-        <span className="font-semibold text-sm text-gray-700 dark:text-gray-200">
+        <span className="font-semibold text-sm text-gray-900 dark:text-white">
           Métricas de Eficiência
         </span>
       </div>
 
       {/* OEE — métrica principal em destaque */}
       <div className="flex flex-col gap-0.5">
-        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-600 dark:text-gray-400">
           OEE
         </span>
         <p
           key={oeeValue}
-          className="font-bold text-2xl lg:text-xl text-gray-800 dark:text-white animate-fade-in"
+          className="font-bold text-2xl lg:text-xl text-gray-900 dark:text-white animate-fade-in"
         >
           {oeeValue}%
         </p>
@@ -80,7 +80,7 @@ export default function EfficiencyPanel({ oee }: Props) {
           icon={
             <Layers
               size={10}
-              className="text-green-500 flex-shrink-0"
+              className="text-blue-600 flex-shrink-0"
               aria-hidden="true"
             />
           }
@@ -91,7 +91,7 @@ export default function EfficiencyPanel({ oee }: Props) {
           icon={
             <Zap
               size={10}
-              className="text-green-500 flex-shrink-0"
+              className="text-blue-600 flex-shrink-0"
               aria-hidden="true"
             />
           }
@@ -102,7 +102,7 @@ export default function EfficiencyPanel({ oee }: Props) {
           icon={
             <Star
               size={10}
-              className="text-green-500 flex-shrink-0"
+              className="text-blue-600 flex-shrink-0"
               aria-hidden="true"
             />
           }

@@ -41,14 +41,14 @@ const stateConfig = {
 export default function MachineStateCard({ state }: Props) {
   const config = stateConfig[state];
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md dark:shadow-black/30 border border-gray-400 dark:border-gray-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in">
       <div className="flex items-center gap-1.5">
         <Cpu
           size={13}
-          className="text-green-600 dark:text-green-400"
+          className="text-blue-600 dark:text-blue-400"
           aria-hidden="true"
         />
-        <span className="text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+        <span className="text-xs font-medium uppercase tracking-wide text-gray-600 dark:text-gray-400">
           Estado Máquina
         </span>
       </div>
@@ -60,12 +60,12 @@ export default function MachineStateCard({ state }: Props) {
         />
         <span
           key={config.label}
-          className="font-bold text-2xl text-gray-800 dark:text-white animate-fade-in"
+          className="font-bold text-2xl text-gray-900 dark:text-white animate-fade-in"
         >
           {config.label}
         </span>
       </div>
-      <span className="text-xs text-gray-500 dark:text-gray-400">
+      <span className="text-xs text-gray-600 dark:text-gray-400">
         Status: {config.text}
       </span>
     </div>
