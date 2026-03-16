@@ -10,6 +10,7 @@ const levelConfig = {
     color: "text-red-500",
     bg: "bg-red-50 dark:bg-red-900/20",
     border: "border-red-500",
+    ring: "ring-1 ring-inset ring-red-500",
     label: "Crítico",
     Icon: AlertCircle,
   },
@@ -17,6 +18,7 @@ const levelConfig = {
     color: "text-yellow-500",
     bg: "bg-yellow-50 dark:bg-yellow-900/20",
     border: "border-yellow-500",
+    ring: "ring-1 ring-inset ring-yellow-500",
     label: "Aviso",
     Icon: AlertTriangle,
   },
@@ -24,6 +26,7 @@ const levelConfig = {
     color: "text-blue-500",
     bg: "bg-blue-50 dark:bg-blue-900/20",
     border: "border-blue-500",
+    ring: "ring-1 ring-inset ring-blue-500",
     label: "Info",
     Icon: Info,
   },
@@ -36,7 +39,7 @@ export default function AlertsPanel({ alerts }: Props) {
   });
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 max-sm:overflow-hidden lg:max-h-none lg:overflow-visible transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in max-sm:h-32">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md dark:shadow-black/30 border border-gray-400 dark:border-gray-600 max-sm:overflow-hidden lg:max-h-none lg:overflow-visible transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in max-sm:h-32">
       <div className="flex items-center gap-1.5 mb-2">
         <Bell
           size={15}
@@ -58,7 +61,7 @@ export default function AlertsPanel({ alerts }: Props) {
             return (
               <div
                 key={alert.id}
-                className={`rounded-lg px-4 py-3 border-l-4 ${config.bg} ${config.border} animate-fade-in`}
+                className={`rounded-lg px-4 py-3 border-l-4 ${config.bg} ${config.border} ${config.ring} animate-fade-in`}
                 role="alert"
                 aria-label={`Alerta ${config.label}: ${alert.message}`}
               >

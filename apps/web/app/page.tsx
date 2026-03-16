@@ -15,6 +15,7 @@ import AlertsPanel from "./components/alerts/AlertsPanel";
 
 export default function Page() {
   const [darkMode, setDarkMode] = useState(false);
+  const [soundEnabled, setSoundEnabled] = useState(false);
   const { data, connected, tempTrend, rpmTrend } = useMachineData();
   const { history } = useMetricHistory();
 
@@ -24,7 +25,7 @@ export default function Page() {
   };
 
   const alerts = data
-    ? generateAlerts(data.metrics.temperature, data.metrics.rpm)
+    ? generateAlerts(data.metrics.temperature, data.metrics.rpm, soundEnabled)
     : [];
 
   return (
@@ -38,6 +39,8 @@ export default function Page() {
         connected={connected}
         darkMode={darkMode}
         onToggleDark={toggleDark}
+        soundEnabled={soundEnabled}
+        onToggleSound={() => setSoundEnabled((prev) => !prev)}
       />
 
       <main

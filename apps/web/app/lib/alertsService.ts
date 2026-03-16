@@ -1,11 +1,15 @@
 import { Alert } from "@repo/types";
 import { playAlertSound } from "./soundService";
 
-export function generateAlerts(temperature: number, rpm: number): Alert[] {
+export function generateAlerts(
+  temperature: number,
+  rpm: number,
+  soundEnabled: boolean = false,
+): Alert[] {
   const alerts: Alert[] = [];
 
   if (temperature > 85) {
-    playAlertSound("CRITICAL");
+    if (soundEnabled) playAlertSound("CRITICAL");
     alerts.push({
       id: `alert-${Date.now()}-temp`,
       level: "CRITICAL",
@@ -17,7 +21,7 @@ export function generateAlerts(temperature: number, rpm: number): Alert[] {
   }
 
   if (rpm < 1100) {
-    playAlertSound("WARNING");
+    if (soundEnabled) playAlertSound("WARNING");
     alerts.push({
       id: `alert-${Date.now()}-rpm`,
       level: "WARNING",

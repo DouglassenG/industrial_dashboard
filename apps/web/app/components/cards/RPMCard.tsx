@@ -8,7 +8,7 @@ interface Props {
 
 export default function RPMCard({ rpm, max, trend }: Props) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow border border-gray-300 dark:border-gray-700 transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in">
+    <div className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md dark:shadow-black/30 border border-gray-400 dark:border-gray-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-gray-50 dark:hover:bg-gray-800/60 animate-fade-in">
       <div className="flex items-center gap-1.5">
         <Gauge
           size={13}
@@ -41,7 +41,7 @@ export default function RPMCard({ rpm, max, trend }: Props) {
           />
         )}
         {trend === "stable" && (
-          <Minus size={18} className="text-gray-400" aria-label="Estável" />
+          <Minus size={18} className="text-gray-500" aria-label="Estável" />
         )}
       </div>
       <span className="text-xs text-gray-500 dark:text-gray-400">

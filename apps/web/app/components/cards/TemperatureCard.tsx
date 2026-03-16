@@ -9,10 +9,10 @@ interface Props {
 export default function TemperatureCard({ temperature, max, trend }: Props) {
   return (
     <div
-      className={`rounded-xl p-5 shadow border transition-all duration-300 hover:-translate-y-1 hover:shadow-md animate-fade-in ${
+      className={`rounded-xl p-5 shadow-md dark:shadow-black/30 border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg animate-fade-in ${
         temperature >= max
           ? "bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600"
-          : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-700"
+          : "bg-white dark:bg-gray-800 border-gray-400 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/60"
       }`}
     >
       <div className="flex items-center gap-1.5">
@@ -43,7 +43,7 @@ export default function TemperatureCard({ temperature, max, trend }: Props) {
           />
         )}
         {trend === "stable" && (
-          <Minus size={18} className="text-gray-400" aria-label="Estável" />
+          <Minus size={18} className="text-gray-500" aria-label="Estável" />
         )}
       </div>
       <span className="text-xs text-gray-500 dark:text-gray-400">
